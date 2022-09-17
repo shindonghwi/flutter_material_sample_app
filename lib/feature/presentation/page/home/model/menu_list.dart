@@ -142,4 +142,118 @@ Map<String, dynamic> menuList = {
     'Albums',
     'Caller',
   ],
+
+  // 13
+  'List': [
+    'Basic',
+    'Sectioned',
+    'Animation',
+    'Expand',
+    'Draggable',
+    'Swipe',
+    'Multi Selection',
+    'News Light',
+    'News Light Horizontal',
+    'News Card',
+    'News Image',
+  ],
+
+  // 14
+  'Menu': [
+    'Drawer News',
+    'Drawer Mail',
+    'Drawer Simple Light',
+    'Drawer Simple Dard',
+    'Drawer No Icon',
+    'Overflow Toolbar',
+    'Overflow List',
+    'Drawer White',
+    'Drawer White Progress',
+    'Drawer Agri',
+    'Drawer Filter',
+    'Drawer Admin',
+    'Drawer Admin Dark',
+    'Drawer Bottom',
+    'Drawer Bottom Card',
+    'Drawer Slider',
+    'Drawer Slider Simple',
+    'Drawer Icon',
+    'Drawer Icon Sub',
+    'Drawer Colorful',
+    'Drawer Card',
+    'Drawer Back',
+    'Drawer Back Icon',
+  ],
+
+  // 15
+  'Banner': [],
+
+  // 16
+  'Pickers': [],
+
+  // 17
+  'Progress & Activity': [],
+
+  // 18
+  'Sliders': [],
+
+  // 19
+  'SnackBars & Toast': [],
+
+  // 20
+  'Steppers': [],
+
+  // 21
+  'Tabs': [],
+
+  // 22
+  'Form': [],
+
+  // 23
+  'Toolbars': [],
+
+  // 24
+  'Profile': [],
+
+  // 25
+  'No Item Page': [],
+
+  // 26
+  'Player': [],
+
+  // 27
+  'Timeline': [],
+
+  // 28
+  'Shopping': [],
+
+  // 30
+  'Search Page': [],
+
+  // 31
+  'Slider Image': [],
+
+  // 32
+  'Setting': [],
+
+  // 33
+  'Verification': [],
+
+  // 34
+  'Login': [],
+
+  // 35
+  'Payment': [],
+
+  // 36
+  'Dashboard': [],
+
+  // 37
+  'Article': [],
+
+  // 38
+  'About': [],
+
+  // 39
+  'Chat': [],
 }.map((key, value) => MapEntry(key, value));
