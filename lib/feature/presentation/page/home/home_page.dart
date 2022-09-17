@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'model/menu_list.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -8,20 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Map<String, dynamic> menuList = {
-    'Bottom Navigation': ['Basic', 'Shifting'],
-    'Bottom Sheet': ['Basic', 'List'],
-    'Side Sheet': ['Basic'],
-    'Buttons': ['Basic', 'Button In Utilities'],
-    'Backdrop': ['Basic', 'Filter', 'Navigation', 'Steppers', 'Text Field', 'Selection']
-  }.map((key, value) => MapEntry(key, value));
-
-  final Map<String, dynamic> _selected = {}; // 좋아요 상태
+  final Map<String, dynamic> _selectedList = {}; // 좋아요 상태
 
   @override
   void initState() {
     super.initState();
-    initSelectedState();
+    initSelectedState(); // 좋아요 초기화
   }
 
   /// 좋아요 클릭 상태 초기화
@@ -31,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       element.value.toList().forEach((element) {
         likeState.add(false);
       });
-      _selected[element.key] = likeState;
+      _selectedList[element.key] = likeState;
     }
   }
 
@@ -52,16 +46,19 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Text(
                       subMenu,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     IconButton(
                         onPressed: () {
                           setState(() {
-                            _selected[key][index] = !_selected[key][index];
+                            _selectedList[key][index] = !_selectedList[key][index];
                           });
                         },
                         icon: Icon(
-                          _selected[key][index] == true ? Icons.favorite : Icons.favorite_outline,
+                          _selectedList[key][index] == true ? Icons.favorite : Icons.favorite_outline,
                           color: Colors.pink,
                         ))
                   ],
