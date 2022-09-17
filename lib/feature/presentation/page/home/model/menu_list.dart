@@ -55,14 +55,7 @@ Map<String, dynamic> menuList = {
   ],
 
   // 5
-  'Backdrop': [
-    'Basic',
-    'Filter',
-    'Navigation',
-    'Steppers',
-    'Text Field',
-    'Selection'
-  ],
+  'Backdrop': ['Basic', 'Filter', 'Navigation', 'Steppers', 'Text Field', 'Selection'],
 
   // 6
   'Cards': [

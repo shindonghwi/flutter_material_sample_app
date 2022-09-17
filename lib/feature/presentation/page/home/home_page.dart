@@ -54,14 +54,11 @@ class _HomePageState extends State<HomePage> {
                     IconButton(
                         onPressed: () {
                           setState(() {
-                            _selectedList[key][index] =
-                                !_selectedList[key][index];
+                            _selectedList[key][index] = !_selectedList[key][index];
                           });
                         },
                         icon: Icon(
-                          _selectedList[key][index] == true
-                              ? Icons.favorite
-                              : Icons.favorite_outline,
+                          _selectedList[key][index] == true ? Icons.favorite : Icons.favorite_outline,
                           color: Colors.pink,
                         ))
                   ],
@@ -91,8 +88,7 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.menu),
             tooltip: 'menu',
             onPressed: () {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(const SnackBar(content: Text('Click Menu')));
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Click Menu')));
             },
           ),
           actions: [
@@ -100,16 +96,14 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.search),
               tooltip: 'search',
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Click Search')));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Click Search')));
               },
             ),
             IconButton(
               icon: const Icon(Icons.add_alert),
               tooltip: 'alert',
               onPressed: () {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(const SnackBar(content: Text('Click Alert')));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Click Alert')));
               },
             ),
           ],
