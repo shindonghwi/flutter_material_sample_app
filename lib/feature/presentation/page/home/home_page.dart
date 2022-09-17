@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         itemCount: menuList.length,
         itemBuilder: (BuildContext context, int idx) {
           String key = menuList.keys.elementAt(idx);
-          List<String> values = menuList.values.elementAt(idx);
+          List values = menuList.values.elementAt(idx);
           List<Widget> subList = [];
 
           values.asMap().forEach((index, subMenu) {
@@ -54,11 +54,14 @@ class _HomePageState extends State<HomePage> {
                     IconButton(
                         onPressed: () {
                           setState(() {
-                            _selectedList[key][index] = !_selectedList[key][index];
+                            _selectedList[key][index] =
+                                !_selectedList[key][index];
                           });
                         },
                         icon: Icon(
-                          _selectedList[key][index] == true ? Icons.favorite : Icons.favorite_outline,
+                          _selectedList[key][index] == true
+                              ? Icons.favorite
+                              : Icons.favorite_outline,
                           color: Colors.pink,
                         ))
                   ],
@@ -67,12 +70,15 @@ class _HomePageState extends State<HomePage> {
             );
           });
 
-          return ExpansionTile(
-              title: Text(key.toString()),
-              subtitle: Text('count: ${values.length}'),
-              initiallyExpanded: false,
-              controlAffinity: ListTileControlAffinity.platform,
-              children: subList);
+          return IgnorePointer(
+              ignoring: values.isEmpty,
+              child: ExpansionTile(
+                  title: Text(key.toString()),
+                  subtitle: Text('count: ${values.length}'),
+                  initiallyExpanded: false,
+                  trailing: values.isEmpty ? const SizedBox() : null,
+                  controlAffinity: ListTileControlAffinity.platform,
+                  children: subList));
         });
   }
 
@@ -85,7 +91,8 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.menu),
             tooltip: 'menu',
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Click Menu')));
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(const SnackBar(content: Text('Click Menu')));
             },
           ),
           actions: [
@@ -93,14 +100,16 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.search),
               tooltip: 'search',
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Click Search')));
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Click Search')));
               },
             ),
             IconButton(
               icon: const Icon(Icons.add_alert),
               tooltip: 'alert',
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Click Alert')));
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(const SnackBar(content: Text('Click Alert')));
               },
             ),
           ],
