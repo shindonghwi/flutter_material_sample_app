@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_sample_app/feature/presentation/page/bottom_navigation/basic/bottom_navigation_basic.dart';
 
 import 'model/menu_list.dart';
 
@@ -15,17 +16,29 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    initSelectedState(); // 좋아요 초기화
+    _initSelectedState(); // 좋아요 초기화
   }
 
   /// 좋아요 클릭 상태 초기화
-  void initSelectedState() {
+  void _initSelectedState() {
     for (var element in menuList.entries) {
       List<bool> likeState = [];
       element.value.toList().forEach((element) {
         likeState.add(false);
       });
       _selectedList[element.key] = likeState;
+    }
+  }
+
+  void _pageMove(int mainIndex, int subIndex) {
+    switch (mainIndex) {
+      case 0:
+        switch (subIndex) {
+          case 0:
+            Navigator.push(
+                context, MaterialPageRoute(builder: (BuildContext context) => const BottomNavigationBasic()));
+        }
+        break;
     }
   }
 
@@ -40,30 +53,35 @@ class _HomePageState extends State<HomePage> {
           values.asMap().forEach((index, subMenu) {
             subList.add(
               Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      subMenu,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
+                  padding: const EdgeInsets.only(left: 40),
+                  child: GestureDetector(
+                    onTap: () {
+                      _pageMove(idx, index);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                            child: Text(
+                          subMenu,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _selectedList[key][index] = !_selectedList[key][index];
+                              });
+                            },
+                            icon: Icon(
+                              _selectedList[key][index] == true ? Icons.favorite : Icons.favorite_outline,
+                              color: Colors.pink,
+                            ))
+                      ],
                     ),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _selectedList[key][index] = !_selectedList[key][index];
-                          });
-                        },
-                        icon: Icon(
-                          _selectedList[key][index] == true ? Icons.favorite : Icons.favorite_outline,
-                          color: Colors.pink,
-                        ))
-                  ],
-                ),
-              ),
+                  )),
             );
           });
 
