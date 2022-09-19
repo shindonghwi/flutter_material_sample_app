@@ -31,20 +31,20 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _pageMove(int mainIndex, int subIndex) {
-    switch (mainIndex) {
-      case 0:
-        switch (subIndex) {
-          case 0:
+  void _pageMove(String mainMenuName, String subMenuName) {
+    switch (mainMenuName) {
+      case 'Bottom Navigation':
+        switch (subMenuName) {
+          case 'Basic':
             Navigator.push(
                 context, MaterialPageRoute(builder: (BuildContext context) => const BottomNavigationBasic()));
         }
         break;
-      case 3:
-        switch (subIndex) {
-          case 0:
+      case 'Buttons':
+        switch (subMenuName) {
+          case 'Basic':
             Navigator.push(
-                context, MaterialPageRoute(builder: (BuildContext context) => const ButtonBasic("hello flutter")));
+                context, MaterialPageRoute(builder: (BuildContext context) => const ButtonBasic()));
         }
     }
   }
@@ -63,7 +63,9 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(left: 40),
                   child: GestureDetector(
                     onTap: () {
-                      _pageMove(idx, index);
+                      String mainMenuName = key;
+                      String subMenuName = subMenu;
+                      _pageMove(mainMenuName, subMenuName);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

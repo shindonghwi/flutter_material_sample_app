@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonBasic extends StatefulWidget {
-  final String title;
-
-  // final Color title;
-  const ButtonBasic(this.title, {Key? key}) : super(key: key);
+  const ButtonBasic({super.key});
 
   @override
   State<StatefulWidget> createState() => _ButtonBasicState();
@@ -32,8 +29,8 @@ class _ButtonBasicState extends State<ButtonBasic> {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: ElevatedButton(
                             onPressed: () {},
-                            child: Text(
-                              widget.title,
+                            child: const Text(
+                              "hello flutter",
                               textAlign: TextAlign.center,
                             )),
                       ),
@@ -46,8 +43,8 @@ class _ButtonBasicState extends State<ButtonBasic> {
                           onPressed: null,
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
-                          child: Text(
-                            widget.title,
+                          child: const Text(
+                            'Dong Hwi',
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -79,20 +76,6 @@ class ButtonTitleWidget extends StatelessWidget {
           child: Divider(thickness: 0.5, height: 1, color: Colors.grey),
         ))
       ],
-    );
-  }
-}
-
-class Square extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        color: Colors.yellow,
-        border: Border.all(),
-      ),
     );
   }
 }
