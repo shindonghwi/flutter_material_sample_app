@@ -5,10 +5,10 @@ class BottomNavigationBasic extends StatefulWidget {
   const BottomNavigationBasic({super.key});
 
   @override
-  State<BottomNavigationBasic> createState() => _BottomNavigationBasic();
+  State<BottomNavigationBasic> createState() => _BottomNavigationBasicState();
 }
 
-class _BottomNavigationBasic extends State<BottomNavigationBasic> {
+class _BottomNavigationBasicState extends State<BottomNavigationBasic> {
 
   int _selectedIndex = 0;
 
