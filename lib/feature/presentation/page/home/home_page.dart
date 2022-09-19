@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_sample_app/feature/presentation/page/bottom_navigation/basic/bottom_navigation_basic.dart';
+import 'package:flutter_material_sample_app/feature/presentation/page/button/basic/button_basic.dart';
 
 import 'model/menu_list.dart';
 
@@ -39,6 +40,12 @@ class _HomePageState extends State<HomePage> {
                 context, MaterialPageRoute(builder: (BuildContext context) => const BottomNavigationBasic()));
         }
         break;
+      case 3:
+        switch (subIndex) {
+          case 0:
+            Navigator.push(
+                context, MaterialPageRoute(builder: (BuildContext context) => const ButtonBasic("hello flutter")));
+        }
     }
   }
 
