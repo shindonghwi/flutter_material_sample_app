@@ -8,7 +8,8 @@ Map<String, dynamic> menuList = {
   ],
 
   'Image': [
-    'Load Image'
+    'Load Image',
+    'Slider Image'
   ],
 
   // 'Bottom Sheet': [],

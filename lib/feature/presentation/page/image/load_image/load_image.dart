@@ -12,6 +12,7 @@ class _ImageState extends State<Img> {
   Widget build(BuildContext context) {
     return Image.network(
       'https://t1.daumcdn.net/cfile/tistory/1767D3364E05E07203',
+      fit: BoxFit.fill,
       loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
         if (loadingProgress == null) {
           return child;
