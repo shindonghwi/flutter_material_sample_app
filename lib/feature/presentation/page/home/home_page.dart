@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_sample_app/feature/presentation/page/bottom_navigation/basic/bottom_navigation_basic.dart';
 import 'package:flutter_material_sample_app/feature/presentation/page/button/basic/button_basic.dart';
+import 'package:flutter_material_sample_app/feature/presentation/page/image/load_image/load_image.dart';
 
 import 'model/menu_list.dart';
 
@@ -43,9 +44,15 @@ class _HomePageState extends State<HomePage> {
       case 'Buttons':
         switch (subMenuName) {
           case 'Basic':
-            Navigator.push(
-                context, MaterialPageRoute(builder: (BuildContext context) => const ButtonBasic()));
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const ButtonBasic()));
         }
+        break;
+      case 'Image':
+        switch (subMenuName) {
+          case 'Load Image':
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Img()));
+        }
+        break;
     }
   }
 
